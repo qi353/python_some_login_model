@@ -6,7 +6,7 @@ from pyppeteer import launch
 import aiohttp
 
 
-async def mtaobao_login(username, password, url):
+async def h5_taobao_login(username, password, url):
     browser = await launch({'headless': False, 'args': ['--no-sandbox'], 'dumpio': True})
     page = await browser.newPage()
     await page.setViewport(viewport={'width': 375, 'height': 667})
@@ -78,6 +78,4 @@ if __name__ == '__main__':
     password = 'test'
     url = 'https://login.m.taobao.com/login.htm?loginFrom=wap_tmall&redirectURL=https://www.tmall.com/?from=m'
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(mtaobao_login(username, password, url))
-    # loop.run_until_complete(tmall_spider())
-    # loop.run_until_complete(tmall_login(username, password, url_tmall))
+    loop.run_until_complete(h5_taobao_login(username, password, url))
